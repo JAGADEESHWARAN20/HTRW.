@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <div class="flex items-center justify-center h-screen">
+        <div class="bg-white rounded-lg p-6">
+            <h1 class="text-2xl font-medium">Thank you for your submission!</h1>
+            <p class="text-gray-600">We appreciate your time and effort.</p>
+            <button class="bg-indigo-500 text-white px-4 py-2 rounded-full hover:bg-indigo-600" onclick="showPopup()">View your submission</button>
+        </div>
+    </div>
+    <div class="fixed top-0 left-0 w-full h-full flex items-center justify-center" id="popup">
+        <div class="bg-white rounded-lg p-6">
+            <h2 class="text-2xl font-medium">Your submission details</h2>
+            <p>Name: <span id="name"></span></p>
+            <p>Email: <span id="email"></span></p>
+            <p>Message: <span id="message"></span></p>
+            <button class="bg-indigo-500 text-white px-4 py-2 rounded-full hover:bg-indigo-600" onclick="hidePopup()">Close</button>
+        </div>
+    </div>
+    <script>
+        function showPopup() {  
+            // Retrieve the values from the form fields
+            var name = document.getElementById("name-field").value;
+            var email = document.getElementById("email-field").value;
+            var message = document.getElementById("message-field").value;
+            // Set the values in the popup
+            document.getElementById("name").innerHTML = name;
+            document.getElementById("email").innerHTML = email;
+            document.getElementById("message").innerHTML = message;
+            // Show the popup
+            $("#popup").removeClass("hidden");
+        }
+        function hidePopup() {
+            // Hide the popup
+            $("#popup").addClass("hidden");
+        }
+    </script>
+  </body>
+</html>
